@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>C\Fidelity AI | Autonomous AI-Driven Corporate Governance</title>
+
+    
+
+    <!-- Password Protection -->
+
+    <script>
+
+        (function() {
+
+            // Set your password here
+
+            const CORRECT_PASSWORD = "CF2026";
+
+            
+
+            // Check if already authenticated this session
+
+            if (sessionStorage.getItem('cfidelity_auth') !== 'true') {
+
+                const userPass = prompt("🔒 RESTRICTED ACCESS\n\nThis site is confidential and intended for authorized investors and partners only.\n\nPlease enter access code:");
+
+                
+
+                if (userPass === CORRECT_PASSWORD) {
+
+                    sessionStorage.setItem('cfidelity_auth', 'true');
+
+                } else {
+
+                    document.write(`
+
+                        <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#020617;color:#64748b;font-family:system-ui;">
+
+                            <div style="text-align:center;max-width:400px;padding:2rem;">
+
+                                <div style="width:60px;height:60px;background:#ef4444/20;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;">
+
+                                    <span style="color:#ef4444;font-size:2rem;">✕</span>
+
+                                </div>
+
+                                <h1 style="color:#fff;margin-bottom:1rem;font-size:1.5rem;">Access Denied</h1>
+
+                                <p style="margin-bottom:1.5rem;line-height:1.6;">This site is restricted to authorized personnel. If you believe you should have access, please contact:</p>
+
+                                <p style="color:#0ea5e9;font-weight:600;">stan.tan@springfieldcap.com</p>
+
+                                <p style="margin-top:2rem;font-size:0.875rem;color:#475569;">© 2026 C\Fidelity AI. Confidential.</p>
+
+                            </div>
+
+                        </div>
+
+                    `);
+
+                    throw new Error("Access denied");
+
+                }
+
+            }
+
+        })();
+
+    </script>
+
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    
+
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    fontFamily: {
+
+                        sans: ['Inter', 'sans-serif'],
+
+                        mono: ['JetBrains Mono', 'monospace'],
+
+                    },
+
+                    colors: {
+
+                        'cf': {
+
+                            50: '#f0f9ff',
+
+                            100: '#e0f2fe',
+
+                            500: '#0ea5e9',
+
+                            600: '#0284c7',
+
+                            900: '#0c4a6e',
+
+                            950: '#082f49',
+
+                        },
+
+                        'slate': {
+
+                            850: '#1e293b',
+
+                            900: '#0f172a',
+
+                            950: '#020617',
+
+                        }
+
+                    },
+
+                    animation: {
+
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+
+                        'float': 'float 6s ease-in-out infinite',
+
+                    },
+
+                    keyframes: {
+
+                        float: {
+
+                            '0%, 100%': { transform: 'translateY(0)' },
+
+                            '50%': { transform: 'translateY(-20px)' },
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+    
+
+    <style>
+
+        body {
+
+            background-color: #020617;
+
+            color: #e2e8f0;
+
+            overflow-x: hidden;
+
+        }
+
+        
+
+        .gradient-text {
+
+            background: linear-gradient(135deg, #e0f2fe 0%, #0ea5e9 50%, #0284c7 100%);
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+
+        }
+
+        
+
+        .glass-panel {
+
+            background: rgba(30, 41, 59, 0.4);
+
+            backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(148, 163, 184, 0.1);
+
+        }
+
+        
+
+        .glow-line {
+
+            background: linear-gradient(90deg, transparent, #0ea5e9, transparent);
+
+            height: 1px;
+
+            opacity: 0.5;
+
+        }
+
+        
+
+        .audit-node {
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+        
+
+        .audit-node::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: -100%;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.2), transparent);
+
+            transition: left 0.5s;
+
+        }
+
+        
+
+        .audit-node:hover::before {
+
+            left: 100%;
+
+        }
+
+        
+
+        .stat-counter {
+
+            font-variant-numeric: tabular-nums;
+
+        }
+
+        
+
+        .regulatory-card {
+
+            transition: all 0.3s ease;
+
+        }
+
+        
+
+        .regulatory-card:hover {
+
+            transform: translateY(-4px);
+
+            border-color: rgba(14, 165, 233, 0.5);
+
+            box-shadow: 0 20px 40px -15px rgba(14, 165, 233, 0.2);
+
+        }
+
+        
+
+        .inference-layer {
+
+            background: repeating-linear-gradient(
+
+                45deg,
+
+                transparent,
+
+                transparent 10px,
+
+                rgba(14, 165, 233, 0.03) 10px,
+
+                rgba(14, 165, 233, 0.03) 20px
+
+            );
+
+        }
+
+        
+
+        .noise-bg {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            opacity: 0.03;
+
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+
+        }
+
+        
+
+        .hero-grid {
+
+            background-image: 
+
+                linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+
+                linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+
+            background-size: 50px 50px;
+
+        }
+
+        
+
+        .scroll-indicator {
+
+            animation: bounce 2s infinite;
+
+        }
+
+        
+
+        @keyframes bounce {
+
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+
+            40% {transform: translateY(-10px);}
+
+            60% {transform: translateY(-5px);}
+
+        }
+
+    </style>
+
+</head>
+
+<body class="antialiased relative">
+
+
+    <!-- Noise Texture Overlay -->
+
+    <div class="noise-bg"></div>
+
+
+    <!-- Navigation -->
+
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+
+        <div class="glass-panel border-b border-slate-800/50">
+
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+                <div class="flex justify-between items-center h-20">
+
+                    <div class="flex items-center space-x-3">
+
+                        <div class="w-10 h-10 bg-gradient-to-br from-cf-500 to-cf-700 rounded-lg flex items-center justify-center shadow-lg shadow-cf-500/20">
+
+                            <span class="text-white font-bold text-xl font-mono">C\</span>
+
+                        </div>
+
+                        <span class="text-2xl font-bold tracking-tight text-white">Fidelity AI</span>
+
+                    </div>
+
+                    
+
+                    <div class="hidden md:flex items-center space-x-8">
+
+                        <a href="#problem" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">The Crisis</a>
+
+                        <a href="#solution" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Solution</a>
+
+                        <a href="#moat" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Technology</a>
+
+                        <a href="#traction" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Traction</a>
+
+                        <a href="#contact" class="px-5 py-2.5 bg-cf-600 hover:bg-cf-500 text-white text-sm font-semibold rounded-lg transition-all shadow-lg shadow-cf-600/25 hover:shadow-cf-500/40">
+
+                            Request Access
+
+                        </a>
+
+                    </div>
+
+
+                    <button class="md:hidden text-slate-300 hover:text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+
+        <!-- Mobile Menu -->
+
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-slate-800/50">
+
+            <div class="px-6 py-4 space-y-3">
+
+                <a href="#problem" class="block text-slate-300 hover:text-white py-2">The Crisis</a>
+
+                <a href="#solution" class="block text-slate-300 hover:text-white py-2">Solution</a>
+
+                <a href="#moat" class="block text-slate-300 hover:text-white py-2">Technology</a>
+
+                <a href="#traction" class="block text-slate-300 hover:text-white py-2">Traction</a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+
+    <section class="relative min-h-screen flex items-center justify-center hero-grid pt-20 overflow-hidden">
+
+        <!-- Background Elements -->
+
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/50 to-slate-950 z-0"></div>
+
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cf-600/20 rounded-full blur-3xl animate-pulse-slow"></div>
+
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 mb-8 animate-float">
+
+                <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+
+                <span class="text-sm font-mono text-slate-300">Now validating with enterprise pilots</span>
+
+            </div>
+
+            
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-tight">
+
+                <span class="block text-white">Autonomous</span>
+
+                <span class="block gradient-text mt-2">AI-Driven Governance</span>
+
+            </h1>
+
+            
+
+            <p class="mt-6 text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light">
+
+                The first independent AI audit layer for revenue integrity. 
+
+                Evidentiary-grade reports delivered directly to your board audit committee—
+
+                <span class="text-cf-400 font-medium">outside management control</span>.
+
+            </p>
+
+
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+
+                <a href="#solution" class="px-8 py-4 bg-cf-600 hover:bg-cf-500 text-white font-semibold rounded-lg transition-all shadow-xl shadow-cf-600/20 hover:shadow-cf-500/40 transform hover:-translate-y-1">
+
+                    Explore the Platform
+
+                </a>
+
+                <a href="#contact" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-lg border border-slate-700 transition-all">
+
+                    Schedule Board Demo
+
+                </a>
+
+            </div>
+
+
+            <!-- Stats Grid -->
+
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+
+                <div class="glass-panel rounded-2xl p-6 border border-slate-700/50">
+
+                    <div class="text-4xl font-bold text-white stat-counter" data-target="18">$0B</div>
+
+                    <div class="text-sm text-slate-400 mt-2">Annual revenue lost to CX churn</div>
+
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 border border-slate-700/50">
+
+                    <div class="text-4xl font-bold text-white">6<span class="text-2xl text-slate-500">mo</span></div>
+
+                    <div class="text-sm text-slate-400 mt-2">Time to deployment vs. 18-24 months</div>
+
+                </div>
+
+                <div class="glass-panel rounded-2xl p-6 border border-slate-700/50">
+
+                    <div class="text-4xl font-bold text-white">0</div>
+
+                    <div class="text-sm text-slate-400 mt-2">Operational interference</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
+
+            <svg class="w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+
+        </div>
+
+    </section>
+
+
+    <!-- The Problem / Regulatory Crisis -->
+
+    <section id="problem" class="relative py-32 bg-slate-950">
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <div class="space-y-8">
+
+                    <div>
+
+                        <h2 class="text-sm font-mono text-cf-400 uppercase tracking-wider mb-4">The Regulatory Crisis</h2>
+
+                        <h3 class="text-4xl md:text-5xl font-bold text-white leading-tight">
+
+                            Board-level accountability is now <span class="text-red-400">mandatory</span>
+
+                        </h3>
+
+                    </div>
+
+                    
+
+                    <p class="text-lg text-slate-400 leading-relaxed">
+
+                        $18-20B in annual revenue evaporates through customer experience churn—
+
+                        premium customers lost not to competition, but to internal procedural failures 
+
+                        that never reach the boardroom.
+
+                    </p>
+
+
+                    <div class="space-y-4">
+
+                        <div class="flex items-start space-x-4">
+
+                            <div class="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+
+                                <span class="text-red-400 text-xs">!</span>
+
+                            </div>
+
+                            <div>
+
+                                <h4 class="text-white font-semibold">Incentive structures filter truth</h4>
+
+                                <p class="text-slate-400 text-sm">High-value churn reported as "market competition" while issues die in silos</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+
+                            <div class="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+
+                                <span class="text-red-400 text-xs">!</span>
+
+                            </div>
+
+                            <div>
+
+                                <h4 class="text-white font-semibold">Internal tools cannot audit themselves</h4>
+
+                                <p class="text-slate-400 text-sm">Boards need independent verification beyond management reporting structures</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="space-y-6">
+
+                    <!-- UK Consumer Duty Card -->
+
+                    <div class="regulatory-card glass-panel rounded-xl p-6 border border-slate-700 relative overflow-hidden group cursor-pointer" onclick="toggleDetails('uk-details')">
+
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
+
+                        <div class="flex justify-between items-start mb-4">
+
+                            <div class="flex items-center space-x-3">
+
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+
+                                    <span class="text-blue-400 font-bold text-sm">UK</span>
+
+                                </div>
+
+                                <div>
+
+                                    <h4 class="text-white font-semibold">FCA Consumer Duty</h4>
+
+                                    <p class="text-xs text-slate-500">In force since July 2023</p>
+
+                                </div>
+
+                            </div>
+
+                            <svg class="w-5 h-5 text-slate-500 transform transition-transform" id="uk-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+
+                        </div>
+
+                        <p class="text-slate-300 text-sm mb-3">
+
+                            Annual board reports required evidencing "good customer outcomes" across four key areas: Products & Services, Price & Value, Consumer Understanding, and Customer Support.
+
+                        </p>
+
+                        <div id="uk-details" class="hidden mt-4 pt-4 border-t border-slate-700/50 text-xs text-slate-400 space-y-2">
+
+                            <p>• Boards must review and approve assessment of whether firm is delivering good outcomes (PRIN 2A.8.4)</p>
+
+                            <p>• Must include evidence of poor outcomes, root cause analysis, and remedial actions</p>
+
+                            <p>• FCA will request reports on demand as part of supervisory activities</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SEC Rules Card -->
+
+                    <div class="regulatory-card glass-panel rounded-xl p-6 border border-slate-700 relative overflow-hidden group cursor-pointer" onclick="toggleDetails('sec-details')">
+
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
+
+                        <div class="flex justify-between items-start mb-4">
+
+                            <div class="flex items-center space-x-3">
+
+                                <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+
+                                    <span class="text-purple-400 font-bold text-sm">SEC</span>
+
+                                </div>
+
+                                <div>
+
+                                    <h4 class="text-white font-semibold">Rules 17a-3 / 17a-4</h4>
+
+                                    <p class="text-xs text-slate-500">Recordkeeping & Audit Trails</p>
+
+                                </div>
+
+                            </div>
+
+                            <svg class="w-5 h-5 text-slate-500 transform transition-transform" id="sec-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+
+                        </div>
+
+                        <p class="text-slate-300 text-sm mb-3">
+
+                            Evidentiary-grade audit trails required for all customer communications. WORM format (Write Once, Read Many) mandated with third-party access provisions for regulators.
+
+                        </p>
+
+                        <div id="sec-details" class="hidden mt-4 pt-4 border-t border-slate-700/50 text-xs text-slate-400 space-y-2">
+
+                            <p>• Rule 17a-3: Creation and maintenance of comprehensive business records, transactions, and communications</p>
+
+                            <p>• Rule 17a-4: WORM storage, indexing, retrieval within 24 hours, and independent third-party access</p>
+
+                            <p>• Billions in recent fines for electronic communications failures (WhatsApp, SMS)</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="glass-panel rounded-xl p-4 border border-red-500/30 bg-red-500/5">
+
+                        <p class="text-sm text-red-200 font-medium text-center">
+
+                            Non-compliance risks: Regulatory sanctions, operational restrictions, and reputational destruction
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- The Solution -->
+
+    <section id="solution" class="relative py-32 bg-slate-900 inference-layer">
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <div class="text-center mb-20">
+
+                <h2 class="text-sm font-mono text-cf-400 uppercase tracking-wider mb-4">The Solution</h2>
+
+                <h3 class="text-4xl md:text-5xl font-bold text-white mb-6">
+
+                    Independent AI audit layer
+
+                </h3>
+
+                <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+
+                    A vertical agentic AI system operating entirely outside management reporting structures—
+
+                    delivering evidentiary-grade truth to those with fiduciary responsibility.
+
+                </p>
+
+            </div>
+
+
+            <!-- Architecture Diagram -->
+
+            <div class="relative mb-20">
+
+                <div class="glass-panel rounded-2xl p-8 md:p-12 border border-slate-700">
+
+                    <div class="grid md:grid-cols-3 gap-8 items-center">
+
+                        <!-- Left: Management Layer -->
+
+                        <div class="space-y-4 opacity-50">
+
+                            <div class="text-xs font-mono text-slate-500 uppercase text-center mb-4">Management Layer</div>
+
+                            <div class="space-y-3">
+
+                                <div class="h-12 bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 text-sm border border-slate-700">CRM Systems</div>
+
+                                <div class="h-12 bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 text-sm border border-slate-700">Internal Analytics</div>
+
+                                <div class="h-12 bg-slate-800 rounded-lg flex items-center justify-center text-slate-400 text-sm border border-slate-700">CX Platforms</div>
+
+                            </div>
+
+                            <div class="text-xs text-center text-slate-600 mt-2">Filtered / Biased</div>
+
+                        </div>
+
+
+                        <!-- Center: C\Fidelity AI -->
+
+                        <div class="relative">
+
+                            <div class="absolute inset-0 bg-cf-500/20 blur-3xl rounded-full"></div>
+
+                            <div class="relative glass-panel rounded-2xl p-6 border-2 border-cf-500/50 bg-slate-900/80 shadow-2xl shadow-cf-500/20">
+
+                                <div class="text-center mb-4">
+
+                                    <div class="w-16 h-16 bg-gradient-to-br from-cf-500 to-cf-700 rounded-xl mx-auto flex items-center justify-center mb-3 shadow-lg">
+
+                                        <span class="text-white font-bold text-2xl font-mono">C\</span>
+
+                                    </div>
+
+                                    <h4 class="text-white font-bold text-lg">Fidelity AI</h4>
+
+                                    <p class="text-xs text-cf-400 font-mono mt-1">AUTONOMOUS AUDIT LAYER</p>
+
+                                </div>
+
+                                
+
+                                                                </div>
+
+                                
+
+                                <div class="space-y-2 text-xs">
+
+                                    <div class="flex items-center justify-between py-2 border-b border-slate-700">
+
+                                        <span class="text-slate-400">Inference Stack</span>
+
+                                        <span class="text-green-400 font-mono">VERIFIED</span>
+
+                                    </div>
+
+                                    <div class="flex items-center justify-between py-2 border-b border-slate-700">
+
+                                        <span class="text-slate-400">Audit Chain</span>
+
+                                        <span class="text-green-400 font-mono">IMMUTABLE</span>
+
+                                    </div>
+
+                                    <div class="flex items-center justify-between py-2">
+
+                                        <span class="text-slate-400">Interference</span>
+
+                                        <span class="text-green-400 font-mono">ZERO</span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            
+
+                            <!-- Connection Lines -->
+
+                            <div class="hidden md:block absolute -left-8 top-1/2 w-8 h-px bg-gradient-to-r from-slate-600 to-cf-500"></div>
+
+                            <div class="hidden md:block absolute -right-8 top-1/2 w-8 h-px bg-gradient-to-l from-slate-600 to-cf-500"></div>
+
+                        </div>
+
+
+                        <!-- Right: Board Layer -->
+
+                        <div class="space-y-4">
+
+                            <div class="text-xs font-mono text-cf-400 uppercase text-center mb-4">Board & Regulators</div>
+
+                            <div class="space-y-3">
+
+                                <div class="audit-node h-12 bg-slate-800 rounded-lg flex items-center justify-center text-white text-sm border border-cf-500/30 shadow-lg shadow-cf-500/10">
+
+                                    Audit Committee
+
+                                </div>
+
+                                <div class="audit-node h-12 bg-slate-800 rounded-lg flex items-center justify-center text-white text-sm border border-cf-500/30 shadow-lg shadow-cf-500/10">
+
+                                    C-Suite
+
+                                </div>
+
+                                <div class="audit-node h-12 bg-slate-800 rounded-lg flex items-center justify-center text-white text-sm border border-cf-500/30 shadow-lg shadow-cf-500/10">
+
+                                    Regulatory Bodies
+
+                                </div>
+
+                            </div>
+
+                            <div class="text-xs text-center text-cf-400 mt-2">Direct Delivery</div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Capabilities Grid -->
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="glass-panel rounded-xl p-6 border border-slate-700 hover:border-cf-500/50 transition-colors group">
+
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cf-500/20 transition-colors">
+
+                        <svg class="w-6 h-6 text-cf-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+
+                    </div>
+
+                    <h4 class="text-white font-semibold mb-2">Procedural Gap Detection</h4>
+
+                    <p class="text-sm text-slate-400">Identifies revenue-impacting biases invisible to internal tools</p>
+
+                </div>
+
+
+                <div class="glass-panel rounded-xl p-6 border border-slate-700 hover:border-cf-500/50 transition-colors group">
+
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cf-500/20 transition-colors">
+
+                        <svg class="w-6 h-6 text-cf-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+
+                    </div>
+
+                    <h4 class="text-white font-semibold mb-2">Evidentiary-Grade</h4>
+
+                    <p class="text-sm text-slate-400">WORM-compliant audit trails with cryptographic verification</p>
+
+                </div>
+
+
+                <div class="glass-panel rounded-xl p-6 border border-slate-700 hover:border-cf-500/50 transition-colors group">
+
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cf-500/20 transition-colors">
+
+                        <svg class="w-6 h-6 text-cf-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+
+                    </div>
+
+                    <h4 class="text-white font-semibold mb-2">Real-Time Capability</h4>
+
+                    <p class="text-sm text-slate-400">On-demand reports and continuous monitoring modes available</p>
+
+                </div>
+
+
+                <div class="glass-panel rounded-xl p-6 border border-slate-700 hover:border-cf-500/50 transition-colors group">
+
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cf-500/20 transition-colors">
+
+                        <svg class="w-6 h-6 text-cf-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>
+
+                    </div>
+
+                    <h4 class="text-white font-semibold mb-2">Political Immunity</h4>
+
+                    <p class="text-sm text-slate-400">Structural independence—management cannot block what they cannot control</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Technical Moat -->
+
+    <section id="moat" class="relative py-32 bg-slate-950">
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <div>
+
+                    <h2 class="text-sm font-mono text-cf-400 uppercase tracking-wider mb-4">Technical Moat</h2>
+
+                    <h3 class="text-4xl md:text-5xl font-bold text-white mb-8">
+
+                        Post-AI capital efficiency
+
+                    </h3>
+
+
+                    <div class="space-y-8">
+
+                        <!-- Before/After Comparison -->
+
+                        <div class="relative">
+
+                            <div class="flex items-center justify-between mb-4">
+
+                                <span class="text-sm font-mono text-slate-500">LEGACY APPROACH</span>
+
+                                <span class="text-sm font-mono text-cf-400">C\FIDELITY AI</span>
+
+                            </div>
+
+                            
+
+                            <div class="space-y-4">
+
+                                <div class="flex items-center space-x-4">
+
+                                    <div class="flex-1 glass-panel p-4 rounded-lg border border-red-500/30 opacity-60">
+
+                                        <div class="flex justify-between items-center">
+
+                                            <span class="text-slate-400 text-sm">Build Time</span>
+
+                                            <span class="text-red-400 font-mono">18-24 months</span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="text-slate-600">→</div>
+
+                                    <div class="flex-1 glass-panel p-4 rounded-lg border border-green-500/30 bg-green-500/5">
+
+                                        <div class="flex justify-between items-center">
+
+                                            <span class="text-white text-sm font-medium">Build Time</span>
+
+                                            <span class="text-green-400 font-mono font-bold">&lt; 6 months</span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="flex items-center space-x-4">
+
+                                    <div class="flex-1 glass-panel p-4 rounded-lg border border-red-500/30 opacity-60">
+
+                                        <div class="flex justify-between items-center">
+
+                                            <span class="text-slate-400 text-sm">Team Size</span>
+
+                                            <span class="text-red-400 font-mono">$2M+ engineers</span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="text-slate-600">→</div>
+
+                                    <div class="flex-1 glass-panel p-4 rounded-lg border border-green-500/30 bg-green-500/5">
+
+                                        <div class="flex justify-between items-center">
+
+                                            <span class="text-white text-sm font-medium">Deployment</span>
+
+                                            <span class="text-green-400 font-mono font-bold">Solo founder</span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="flex items-center space-x-4">
+
+                                    <div class="flex-1 glass-panel p-4 rounded-lg border border-red-500/30 opacity-60">
+
+                                        <div class="flex justify-between items-center">
+
+                                            <span class="text-slate-400 text-sm">Infrastructure</span>
+
+                                            <span class="text-red-400 font-mono">Heavy / Costly</span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="text-slate-600">→</div>
+
+                                    <div class="flex-1 glass-panel p-4 rounded-lg border border-green-500/30 bg-green-500/5">
+
+                                        <div class="flex justify-between items-center">
+
+                                            <span class="text-white text-sm font-medium">Infrastructure</span>
+
+                                            <span class="text-green-400 font-mono font-bold">Agentic Scale</span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="glass-panel rounded-xl p-6 border border-slate-700">
+
+                            <h4 class="text-white font-semibold mb-3 flex items-center">
+
+                                <svg class="w-5 h-5 text-cf-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+
+                                Defensibility
+
+                            </h4>
+
+                            <ul class="space-y-2 text-sm text-slate-400">
+
+                                <li class="flex items-start">
+
+                                    <span class="text-cf-400 mr-2">•</span>
+
+                                    Verifiable inference stack with cryptographic audit chain integrity
+
+                                </li>
+
+                                <li class="flex items-start">
+
+                                    <span class="text-cf-400 mr-2">•</span>
+
+                                    First-mover position in AI-powered external customer audit
+
+                                </li>
+
+                                <li class="flex items-start">
+
+                                    <span class="text-cf-400 mr-2">•</span>
+
+                                    Traditional consulting models rendered obsolete
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="relative">
+
+                    <div class="absolute inset-0 bg-gradient-to-r from-cf-500/20 to-purple-500/20 rounded-3xl blur-3xl"></div>
+
+                    <div class="relative glass-panel rounded-2xl p-8 border border-slate-700">
+
+                        <h4 class="text-white font-semibold mb-6 text-center">Verifiable Inference Stack</h4>
+
+                        
+
+                        <!-- Stack Visualization -->
+
+                        <div class="space-y-4">
+
+                            <div class="relative group">
+
+                                <div class="absolute -inset-0.5 bg-gradient-to-r from-cf-500 to-purple-600 rounded-lg blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+
+                                <div class="relative bg-slate-900 rounded-lg p-4 border border-slate-700">
+
+                                    <div class="flex items-center justify-between">
+
+                                        <span class="text-white font-medium">Board Delivery Layer</span>
+
+                                        <span class="text-xs font-mono text-cf-400">EVIDENTIARY</span>
+
+                                    </div>
+
+                                    <p class="text-xs text-slate-500 mt-1">Direct API to audit committee systems</p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="relative group">
+
+                                <div class="absolute -inset-0.5 bg-gradient-to-r from-cf-600 to-cf-500 rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+
+                                <div class="relative bg-slate-900 rounded-lg p-4 border border-slate-700">
+
+                                    <div class="flex items-center justify-between">
+
+                                        <span class="text-white font-medium">Analysis Engine</span>
+
+                                        <span class="text-xs font-mono text-cf-400">AGENTIC</span>
+
+                                    </div>
+
+                                    <p class="text-xs text-slate-500 mt-1">Procedural gap identification & bias detection</p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="relative group">
+
+                                <div class="absolute -inset-0.5 bg-gradient-to-r from-slate-600 to-slate-500 rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+
+                                <div class="relative bg-slate-900 rounded-lg p-4 border border-slate-700">
+
+                                    <div class="flex items-center justify-between">
+
+                                        <span class="text-white font-medium">Data Ingestion</span>
+
+                                        <span class="text-xs font-mono text-cf-400">ZERO-TOUCH</span>
+
+                                    </div>
+
+                                    <p class="text-xs text-slate-500 mt-1">Read-only acce
